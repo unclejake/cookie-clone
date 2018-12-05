@@ -1,25 +1,44 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import BigCookie from './components/BigCookie';
+import DisplayCookieCount from './components/DisplayCookieCount';
+import CookieStore from './components/CookieStore';
+
+import {
+  incrementCurrentCookies,
+  incrementTotalCookies
+} from './functions/incrementCookie';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentCookies: 0,
+      totalCookies: 0
+    };
+    this.cookieClick = this.cookieClick.bind(this);
+  }
+
+  cookieClick() {
+    this.setState(incrementCurrentCookies);
+    this.setState(incrementTotalCookies);
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <BigCookie 
+          cookieClick={this.cookieClick}
+        />
+        <DisplayCookieCount 
+          currentCookies={this.state.currentCookies}
+          totalCookies={this.state.totalCookies}
+        />
+        <CookieStore
+          currentCookies={this.state.currentCookies} 
+          totalCookies={this.state.totalCookies}
+        />
       </div>
     );
   }
