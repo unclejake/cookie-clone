@@ -13,3 +13,11 @@ function incrementTotalCookies(state, props) {
 }
 
 export {incrementTotalCookies};
+
+function decrementCurrentCookies(state, props) {
+    return {
+        currentCookies: state.currentcookies - 1
+    }
+}
+
+export {decrementCurrentCookies};

@@ -7,7 +7,7 @@ import CookieStore from './components/CookieStore';
 import {
   incrementCurrentCookies,
   incrementTotalCookies
-} from './functions/incrementCookie';
+} from './functions/changeCookieAmount';
 
 class App extends Component {
 
