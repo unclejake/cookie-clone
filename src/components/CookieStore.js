@@ -1,19 +1,14 @@
 import React from 'react';
+import StoreItem from './StoreItem';
 
 class CookieStore extends React.Component {
 
     render() {
         return(
             <div>
-                <div
-                    className="storeitem"
-                />
-                <div
-                    className="storeitem"
-                />
-                <div
-                    className="storeitem"
-                />
+                <StoreItem />
+                <StoreItem />
+                <StoreItem />
             </div>
         );
     }

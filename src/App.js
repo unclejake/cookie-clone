@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {MyProvider} from './context/Context';
 
 import BigCookie from './components/BigCookie';
 import DisplayCookieCount from './components/DisplayCookieCount';
@@ -13,10 +14,6 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      currentCookies: 0,
-      totalCookies: 0
-    };
     this.cookieClick = this.cookieClick.bind(this);
   }
 
@@ -27,19 +24,15 @@ class App extends Component {
 
   render() {
     return (
+      <MyProvider>
       <div className="App">
         <BigCookie 
           cookieClick={this.cookieClick}
         />
-        <DisplayCookieCount 
-          currentCookies={this.state.currentCookies}
-          totalCookies={this.state.totalCookies}
-        />
-        <CookieStore
-          currentCookies={this.state.currentCookies} 
-          totalCookies={this.state.totalCookies}
-        />
+        <DisplayCookieCount />
+        <CookieStore />
       </div>
+      </MyProvider>
     );
   }
 }
